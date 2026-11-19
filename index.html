@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- avisa o navegador que é um documento HTML5 -->
+<html lang="pt-BR"> <!-- início da página, com idioma português -->
+<head>
+    <!-- permite acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- faz a página se ajustar à tela do celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- liga o arquivo de estilos (CSS) à página -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- texto que aparece na aba do navegador -->
+    <title>Tecnologia Antiga</title>
+</head>
+<body>
+    <!-- título principal da página -->
+    <h1>cadastro de tecnologias antigas</h1>
+
+    <!-- formulário onde o usuário digita os dados -->
+    <form id="formTecnologia">
+        <!-- campo para digitar o nome da tecnologia -->
+        <input type="text" id="nome" placeholder="Nome (ex: Disquete)">
+        <!-- campo para digitar o ano da tecnologia -->
+        <input type="text" id="ano" placeholder="Ano (ex: 1971)">
+        <!-- botão que envia o formulário (dispara o "submit") -->
+        <button id="btnSalvar" type="submit">Cadastrar</button>
+    </form>
+
+    <br><br><!--NÃO USAR-->
+
+    <!-- tabela que mostra as tecnologias cadastradas -->
+    <table>
+        <!-- cabeçalho da tabela (títulos das colunas) -->
+        <thead>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Ano</th>
+        </thead>
+
+        <!-- corpo da tabela: as linhas são criadas pelo JavaScript -->
+        <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <!-- liga o arquivo JavaScript (fica no final para o HTML carregar antes) -->
+    <script src="main.js"></script>
+</body>
+</html>

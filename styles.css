@@ -1,0 +1,162 @@
+/* ===== Tema: Tecnologia Antiga (monitor de fósforo verde / anos 80) ===== */
+
+/* importa a fonte pixelada VT323 do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* variáveis de cor: muda aqui e muda no site todo */
+:root {
+    --fundo: #0a0f0a;        /* preto esverdeado do fundo */
+    --tela: #0d1a0d;         /* fundo das caixas (form e tabela) */
+    --verde: #33ff66;        /* verde brilhante do texto */
+    --verde-escuro: #1a8c3a; /* verde mais escuro para bordas e detalhes */
+    --ambar: #ffb000;        /* amarelo âmbar usado no hover */
+}
+
+/* faz a borda e o padding entrarem no tamanho dos elementos */
+* {
+    box-sizing: border-box;
+}
+
+/* estilo geral da página */
+body {
+    margin: 0;                     /* tira a margem padrão do navegador */
+    min-height: 100vh;             /* ocupa no mínimo a altura toda da tela */
+    padding: 40px 16px;            /* espaço interno: 40px em cima/baixo, 16px nos lados */
+    background-color: var(--fundo);
+    color: var(--verde);
+    font-family: 'VT323', 'Courier New', monospace; /* fonte retrô (com reservas) */
+    font-size: 22px;
+    display: flex;                 /* organiza os elementos com flexbox */
+    flex-direction: column;        /* um embaixo do outro */
+    align-items: center;           /* centraliza na horizontal */
+    text-shadow: 0 0 4px var(--verde); /* brilho no texto, igual monitor antigo */
+}
+
+/* linhas horizontais por cima da tela, imitando monitor de tubo (CRT) */
+body::before {
+    content: "";
+    position: fixed;               /* fica fixo cobrindo a tela */
+    inset: 0;                      /* encosta em todos os lados */
+    pointer-events: none;          /* não atrapalha os cliques */
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.25) 3px    /* a cada 3px uma linha escura */
+    );
+}
+
+/* título principal */
+h1 {
+    text-transform: uppercase;     /* deixa tudo em maiúsculo */
+    font-size: 48px;
+    letter-spacing: 4px;           /* espaço entre as letras */
+    margin: 0 0 30px;              /* espaço só embaixo */
+    text-align: center;
+}
+
+/* cursor "_" piscando depois do título */
+h1::after {
+    content: "_";
+    animation: piscar 1s steps(1) infinite; /* repete a animação para sempre */
+}
+
+/* animação do cursor: some na metade do tempo */
+@keyframes piscar {
+    50% { opacity: 0; }
+}
+
+/* caixa do formulário */
+form {
+    display: flex;
+    flex-wrap: wrap;               /* quebra linha se a tela for pequena */
+    gap: 12px;                     /* espaço entre os campos */
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;              /* largura máxima */
+    padding: 20px;
+    background-color: var(--tela);
+    border: 3px double var(--verde); /* borda dupla verde */
+    box-shadow: 0 0 15px rgba(51, 255, 102, 0.3); /* brilho verde em volta */
+}
+
+/* campos de texto */
+input {
+    flex: 1 1 200px;               /* cresce para ocupar o espaço, mínimo 200px */
+    padding: 10px;
+    background-color: #000;
+    color: var(--verde);
+    border: 2px solid var(--verde-escuro);
+    font-family: inherit;          /* usa a mesma fonte da página */
+    font-size: 22px;
+    outline: none;                 /* tira o contorno azul padrão */
+}
+
+/* cor do texto de exemplo dentro do campo */
+input::placeholder {
+    color: var(--verde-escuro);
+}
+
+/* quando o campo está selecionado (clicado) */
+input:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 8px var(--verde);
+}
+
+/* botão Cadastrar */
+button {
+    padding: 10px 24px;
+    background-color: var(--verde);
+    color: #000;
+    border: none;
+    font-family: inherit;
+    font-size: 22px;
+    text-transform: uppercase;
+    cursor: pointer;               /* mãozinha ao passar o mouse */
+    box-shadow: 4px 4px 0 var(--verde-escuro); /* sombra "quadrada" estilo pixel */
+}
+
+/* botão com o mouse em cima: fica âmbar */
+button:hover {
+    background-color: var(--ambar);
+    box-shadow: 4px 4px 0 #8a5f00;
+}
+
+/* botão sendo clicado: parece que afunda */
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* tabela */
+table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;     /* junta as bordas das células */
+    background-color: var(--tela);
+    border: 3px double var(--verde);
+    box-shadow: 0 0 15px rgba(51, 255, 102, 0.3);
+}
+
+/* células do cabeçalho */
+th {
+    background-color: var(--verde);
+    color: #000;
+    text-shadow: none;             /* tira o brilho para ler melhor */
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+/* células do corpo da tabela */
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px dashed var(--verde-escuro); /* linha tracejada entre as linhas */
+}
+
+/* linha da tabela com o mouse em cima: destaca em âmbar */
+tbody tr:hover {
+    background-color: rgba(51, 255, 102, 0.1);
+    color: var(--ambar);
+    text-shadow: 0 0 4px var(--ambar);
+}
