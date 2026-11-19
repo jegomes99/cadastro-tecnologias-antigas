@@ -67,7 +67,7 @@ cadastro-tecnologias-antigas/
 
 1. Baixe ou clone o repositório:
    ```bash
-   git clone https://github.com/SEU-USUARIO/cadastro-tecnologias-antigas.git
+   git clone https://github.com/jegomes99/cadastro-tecnologias-antigas.git
    ```
 2. Abra o arquivo `index.html` no navegador.
 
